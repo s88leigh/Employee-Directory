@@ -8,7 +8,13 @@ import TableData from './components/TableData';
 
 function App() {
   return (
-
+    <div>
+    <PageHeader/>
+    <SearchBar/>
+    <TableArea/>
+    <TableHeader/>
+    <TableData/>
+    </div>
   );
 }
 
