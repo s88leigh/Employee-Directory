@@ -1,8 +1,11 @@
-.row {
+.row2 {
   
     height: 80px;
     padding: 20px;
     background: pink;
     align-content: center;
     
+}
+.inputBox {
+    margin-left: 450px;
 }

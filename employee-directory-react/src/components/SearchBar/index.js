@@ -21,13 +21,13 @@ export default class SearchBar extends React.Component {
 
     render() { //include some states. we're gonna change come states that are put in
         return(
-            <div className='row'>
-                <form>
+            <div className='row2'>
+                <form className="inputBox">
                     <input
                     handleInputChange={this.handleInputChange}
                     handleSubmit={this.handleSubmit}> 
                     </input>
-                    <button
+                    <button className='submitBox'
                     >
                         Search
                     </button>
