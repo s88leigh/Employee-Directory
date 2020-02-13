@@ -1,6 +1,7 @@
 import React from 'react';
 import './tableStyle.css';
 
+
 export default class TableArea extends React.Component {
 
     render() {
@@ -15,29 +16,29 @@ export default class TableArea extends React.Component {
                         <th>DOB</th>
                     </tr>
                     <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
+                        <td><img src='/images/fishbowl.PNG' alt='fishbowl'/></td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
                         <td>Germany</td>
                         <td>Germany</td>
 
                     </tr>
                     <tr>
-                        <td>Centro comercial Moctezuma</td>
+                        <td>Germany<img></img></td>
                         <td>Francisco Chang</td>
                         <td>Mexico</td>
                         <td>Germany</td>
                         <td>Germany</td>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
+                        <td>Germany<img></img></td>
                         <td>Roland Mendel</td>
                         <td>Austria</td>
                         <td>Germany</td>
                         <td>Germany</td>
                     </tr>
                     <tr>
-                        <td>Island Trading</td>
+                        <td>Germany<img></img></td>
                         <td>Helen Bennett</td>
                         <td>UK</td>
                         <td>Germany</td>

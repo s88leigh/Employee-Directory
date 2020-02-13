@@ -1,9 +1,8 @@
 import React from 'react';
-import PageHeader from './components/PageHeader';
-import SearchBar from './components/SearchBar';
-import TableArea from './components/TableArea';
-import TableHeader from './components/TableHeader';
-import TableData from './components/TableData';
+import PageHeader from './components/PageHeader/pageIndex';
+import SearchBar from './components/SearchBar/SearchIndex';
+import TableArea from './components/TableArea/TableAreaIndex';
+import TableData from './components/TableData/TableDataIndex';
 
 
 import './App.css';
@@ -22,10 +21,6 @@ function App() {
 
     <div>
     <TableArea/>
-    </div>
-
-    <div>
-    <TableHeader/>
     </div>
 
     <div>
