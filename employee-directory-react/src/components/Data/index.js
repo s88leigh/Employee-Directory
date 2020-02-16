@@ -8,47 +8,48 @@ export default class EmployeeList extends React.Component {
     state = {
         loading: true,
         employees: []
-       
+
     }
     componentDidMount() {
         const url = 'https://randomuser.me/api/?results=20&nat=us';
         axios.get(url)
-        .then ((response)=> {
-              
-        this.setState({employees: response.data.results});
-        })
-        
- 
+            .then((response) => {
+
+                this.setState({ employees: response.data.results });
+            })
+
     }
+
     render() {
+
         return (
-            <div> 
+            <div>
                 <ReactBootStrap.Table striped bordered hover>
                     <thead>
-                        <tr>
-                             <td className='photo'>
+                        <tr className="justify-content-md-center">
+                            <td>
                                 Photo
                             </td>
-                            <td className='name'>
+                            <td>
                                 Name
                             </td>
-                            <td className='phone'>
+                            <td>
                                 Phone
                             </td>
-                            <td className='email'>
+                            <td>
                                 Email
                             </td>
-                            <td className='dob'>
+                            <td>
                                 DOB
                             </td>
-                           
+
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.employees.map((employee) => (
-                            <tr>
+                            <tr key={employee.id}>
                                 <td>
-                                    <img src= {employee.picture.medium} />
+                                    <img src={employee.picture.medium} />
                                 </td>
                                 <td>
                                     {employee.name.first}
@@ -67,8 +68,12 @@ export default class EmployeeList extends React.Component {
 
                         ))}
                     </tbody>
-                 </ReactBootStrap.Table>
-               
+                </ReactBootStrap.Table>
+
             </div>
-        )}
+        )
+
+
+
+    }
 }
