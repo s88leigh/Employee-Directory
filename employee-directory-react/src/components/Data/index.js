@@ -23,7 +23,7 @@ export default class EmployeeList extends React.Component {
     render() {
         return (
             <div> 
-                <ReactBootStrap.Table>
+                <ReactBootStrap.Table striped bordered hover>
                     <thead>
                         <tr>
                              <td className='photo'>
