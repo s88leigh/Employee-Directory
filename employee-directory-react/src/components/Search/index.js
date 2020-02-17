@@ -1,77 +1,58 @@
 import React from 'react';
 import axios from 'axios';
-import '.style.css';
-
 import SearchBar from '../SearchBar';
+import Data from '../Data';
 
-//activity Gify search
-
-var Employees = [];
 
 export default class Search extends React.Component {
 
     state = {
         search: '', //we are searching for...
-        picture: '',
         name: '',
         phone: '',
         email: '',
-        dob: '',
-        employee: [] //employees
-
+        employees: [] //employees array
     };
 
-        
-  constructor(props) {
-    super(props);
-    this.state = {
-      employee: [],
-      isLoaded: false,
-    }
+    handleInputChange = (event) => {
+      const {name, value} = event.target;
+
+      this.setState(
+          {
+            [name]: value  
+          }
+      )
   }
 
-  componentDidMount() {
-    fetch('https://randomuser.me/api/?results=20&nat=us')
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          isLoaded: true,
-          employees: json,
-        })
-      });
+  handleSubmit = (event) => {
+      event.preventDefault();
+      const url = `https://randomuser.me/api/?results=20&nat=us&q=${this.state.search}`;
+      axios.get(url)
+          .then((response) => {
+              this.setState(
+                  {
+                      employees: response.data.data
+                  }
+              )
+          })
+          .catch((err) => {
+              console.error(err);
+          })
+
   }
 
   render() {
-
-    var {isLoaded, employees } = this.state;
-
-    if (!isLoaded) {
-      return <div> Loading...</div>;
-    }
-    else {
-
       return (
-        <div className='App'>
-    
-          <ul>
-            {this.employees.map(item => (
-
-              <li key={employee.id}>
-                  {employee.picture}
-              {employee.name}
-               {employee.phone}
-                {employee.dob}
-
-              </li>
-
-            ))};
-              </ul>
+          <div>
+              <SearchBar
+                  search={this.state.search}
+                  handleInputChange={this.handleInputChange}
+                  handleSubmit={this.handleSubmit}
+              />
+              <Data
+                  employees={this.state.employees}
+              />
           </div>
-     
       );
-
-    }
   }
 }
-
-    }
