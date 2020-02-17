@@ -16,8 +16,8 @@ export default (props) => <div>
             </tr>
         </thead>
         <tbody>
-            {props.employees.map((employee) => (
-                <tr key={employee.name}>
+            {props.employees.map((employee, i) => (
+                <tr key={i + '-key'}>
                     <td>
                         <img
                             src={employee.picture.medium}

@@ -18,10 +18,10 @@ export default class App extends React.Component {
     const url = 'https://randomuser.me/api/?results=20&nat=us';
     axios.get(url)
       .then((response) => {
-       
+        console.log(response.data)
         this.setState({
-          employees: response.data.data,
-          filteredEmployees: response.data.data,
+          employees: response.data.results,
+          filteredEmployees: response.data.results,
         })
       })
       .catch((err) => {
@@ -29,19 +29,22 @@ export default class App extends React.Component {
       })
   }
 
-
   handleInputChange = event => {
     const { value } = event.target;
     console.log(value)
-    
-    this.setstate({ 
-      filteredEmployees: [];
-    })
-    // goal: Create new array of filtereed users array.filter()
-    
-    
-    
+    // goal: Create new array of filtereed employeess array.filter()
+    //filter this.state.employees for employees with names that includes the letters typed
+    //set this state.employees equal to the new employees array
+    const newFiltered = this.state.employees
+      .filter(emp => {
+        let keys = JSON.stringify(emp).toLowerCase()
+        return keys.includes(value.toLowerCase())
+      })
+    this.setState({ filteredEmployees: newFiltered })
   }
+
+
+
 
   render() {
     return (
@@ -52,6 +55,7 @@ export default class App extends React.Component {
         <SearchBar handleInputChange={this.handleInputChange} />
 
         <Data employees={this.state.filteredEmployees} />
+
 
       </div>
     )
