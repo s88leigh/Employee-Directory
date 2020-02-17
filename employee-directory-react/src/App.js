@@ -3,7 +3,6 @@ import './App.css';
 import axios from 'axios';
 import PageHeader from './components/PageHeader';
 import SearchBar from './components/SearchBar';
-// import Search from './components/Search';
 import Data from './components/Data';
 
 
